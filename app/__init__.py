@@ -123,7 +123,13 @@ def home(name):
 
 @app.route("/message", methods=["PUT"])
 def message():
+    # NOTE: Using a global flag is a terrible synchronization mechanism
+    # A better solution would be to send messages to a queue so they can
+    # be displayed in order.
+    # This is a toy designed for kids and I think it will be fun for them to
+    # "break" this when they inevitably spam messages.
     global message_updated
+    
     msg = request.form["message"]
     message_updated = True
     display_message(msg)
@@ -201,7 +207,7 @@ def render_svg(pixels):
         for x in range(8):
             color = pixels[(y*8)+x]
             if color[0] == 0 and color[1] == 0 and color[2] == 0:
-                continue # Skip black pixels so they a rendered transparent
+                continue # Skip black pixels so they are rendered transparent
             svg += '<rect x="{x}" y="{y}" width="10" height="10" style="fill:rgb({r},{g},{b})" />'.format(x=x*10, y=y*10, r=color[0], g=color[1], b=color[2])
 
     svg += '</svg>'

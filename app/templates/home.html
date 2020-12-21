@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block styles %}
+		<style>
+			.navbar-img {
+				margin-top: -5px;
+				margin-right: 10px;
+			}
+			.proper-name {
+				text-transform:capitalize;
+			}
+			.img-box {
+				padding: 4px;
+				margin-bottom: 20px;
+				background-color: #222;
+				display: inline-block;
+				border-radius: 4px;
+			}
+			.msg-btn {
+				min-width: 250px;
+				margin-bottom: 20px;
+			}
+		</style>
+{% endblock %}
+
+{% block body %}
+
+		<!--
+		Nice! You've found the secret comment in the source code.
+		Have you figured out the first challenge yet?
+		If you need a clue, pay close attention to your browser's address bar.
+
+		For the 2nd challenge, your next clue is here:
+		https://blog.devmountain.com/how-to-use-inspect-element-jump-into-what-makes-a-web-page-tick/
+		See if you can change the messages on the buttons.
+
+		Once you've figured out how to inspect elements on a web page, you can use this trick to change
+		their display style too!
+
+		Look for things that have been hidden using the "display: none" style.
+		Delete that styling rule to reveal more images!
+		https://developer.mozilla.org/en-US/docs/Web/CSS/display
+		-->
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">
+						<img class="navbar-img navbar-left pull-left" src="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+						Christmas Hat
+					</a>
+					<span class="navbar-brand">(and <a href="/hacks.html">hacker challenge</a>)</span>
+				</div>
+			</div>
+		</nav>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>Currently showing</h4>
+			</div>
+			<div class="panel-body text-center">
+				<div id="cur-img" class="img-box">
+					<img src="/image">
+				</div>
+			</div>
+		</div> <!-- panel -->
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+
+				<div class="row">
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="1" src="/image/1" title="Chrismas Pudding">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="2" src="/image/2" title="Ornament?">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="3" src="/image/3" title="Elf">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="4" src="/image/4" title="Holly">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="5" src="/image/5" title="Christmas Tree">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="6" src="/image/6" title="Santa">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="7" src="/image/7" title="Candy Cane">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="8" src="/image/8" title="Candy">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="9" src="/image/9" title="3 Wise Men">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="10" src="/image/10" title="Snowflake?">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="11" src="/image/11" title="Present">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="12" src="/image/12" title="Candle">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="13" src="/image/13" title="Rudolf">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="14" src="/image/14" title="Mistletoe">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="15" src="/image/15" title="Bird">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="16" src="/image/16" title="Snowman">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="17" src="/image/17" title="Elf?">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="18" src="/image/18" title="Sleigh">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="19" src="/image/19" title="Angel">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="20" src="/image/20" title="Bells">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="21" src="/image/21" title="Present">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="22" src="/image/22" title="Wreath">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center hide">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="23" src="/image/23" title="Turkey?">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+						<div class="img-box">
+							<img class="btn img-btn" data-image-id="24" src="/image/24" title="Stocking">
+						</div>
+					</div>
+
+				</div> <!-- row -->
+			</div> <!-- panel-body-->
+		</div> <!-- panel -->
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+						<button type="button" class="btn btn-default btn-lg msg-btn" data-message="Merry Christmas!">Merry Christmas!</button>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+						<button type="button" class="btn btn-default btn-lg msg-btn" data-message="Ho Ho Ho!">Ho Ho Ho!</button>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+						<button type="button" class="btn btn-default btn-lg msg-btn" data-message="Hi {{ name }}!">Hi {{ name }}!</button>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+						<button type="button" class="btn btn-default btn-lg msg-btn" data-message="Naughty">Naughty</button>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+						<button type="button" class="btn btn-default btn-lg msg-btn" data-message="Nice">Nice</button>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+						<button type="button" class="btn btn-default btn-lg msg-btn" data-message="Jingle Bells!">Jingle Bells!</button>
+					</div>
+
+				</div> <!-- row -->
+			</div> <!-- panel-body-->
+		</div> <!-- panel -->
+
+{% endblock %}
+
+{% block scripts %}
+		<script>
+			$(".img-btn").click(function() {
+				let formData = new FormData();
+				formData.append("image", $(this).data("image-id"));
+				fetch("/image", {
+					method: "PUT",
+					body: formData
+				});
+			});
+
+			$(".msg-btn").click(function() {
+				let formData = new FormData();
+				formData.append("message", $(this).data("message"));
+				fetch("/message", {
+					method: "PUT",
+					body: formData
+				});
+				$(this).blur();
+			});
+
+			var curImgEl = $("#cur-img");
+			var eventSource = new EventSource("/image/updates");
+			eventSource.onmessage = function(e) {
+				curImgEl.empty();
+				curImgEl.append(e.data);
+			}
+		</script>
+{% endblock %}

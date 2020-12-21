@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% block body %}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h1>Welcome to the Christmas Hat</h1>
+				<form method="POST" action="login">
+					<div class="form-group">
+						<label for="name-txt">What's your name?</label>
+						<input type="text" class="form-control" name="name" placeholder="First Name">
+					</div>
+					<input id="name-submit" type="submit" class="btn btn-default hide" value="Go!">
+				</form>
+			
+			</div>
+		</div> <!-- panel -->
+{% endblock %}
+

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block styles %}
+	<style>
+		#santas-hat {
+			position: absolute;
+			top: 630px;
+			left: 180px;
+			height: 125px;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+
+		<!--
+		Hi!  Looks like you've figured out the first clue...but maybe you should use this trick somewhere else.
+		-->
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>The elves who built this hat are good at building toys but they are not very good programmers.</p>
+
+				<p>Here is a list of challenges for you to hack this hat:<p>
+				<ol>
+					<li>Trick the hat into saying "Hi Bob" instead of your real name</li>
+					<li>Make the hat display your own custom message</li>
+					<li>Reveal image buttons that are supposed to be hidden</li>
+				</ol>
+
+				<p>Here is your first <a href="https://www.computerhope.com/issues/ch000746.htm">clue</a>.</p>
+
+				<p>The full source code for this hat can be found in the Github <a href="https://github.com/cleroux/pi-xmas-hat">repository</a>.
+			</div> <!-- panel-body -->
+		</div> <!-- panel -->
+
+		<img id="santas-hat" src="{{ url_for('static', filename='img/SantasHat.png') }}">
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

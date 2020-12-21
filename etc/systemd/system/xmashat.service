@@ -1,0 +1,20 @@
+# Place this file in /etc/systemd/system/
+# Don't forget to `sudo systemctl daemon-reload`
+# Restart the service with `sudo systemctl restart xmashat.service`
+
+[Unit]
+Description=Christmas Hat Web Application
+After=network.target
+
+[Service]
+Environment=FLASK_APP=xmashat.py
+#Environment=FLASK_ENV=development
+Environment=FLASK_RUN_HOST=0.0.0.0
+Environment=FLASK_RUN_PORT=8080
+User=pi
+WorkingDirectory=/home/pi/xmashat
+ExecStart=/usr/bin/flask run
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

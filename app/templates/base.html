@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Christmas Hat</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
+		<link rel="manifest" href="{{ url_for('static', filename='img/site.webmanifest') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<style>
+			body {
+				background-image: url('{{ url_for('static', filename='img/bg-snow.png') }}');
+				background-repeat: repeat-x;
+				background-position:center bottom;
+				height: 100%;
+				min-height: 540px;
+				margin-top: 20px;
+				margin-bottom: 120px;
+			}
+			.panel {
+				background-color: rgba(255,255,255,0.5);
+			}
+			.panel-default > .panel-heading {
+				background-color: rgba(245,245,245,0.6);
+			}
+		</style>
+		{% block styles %}{% endblock %}
+	</head>
+	<body>
+		<div class="container">
+
+		{% block body %}{% endblock %}
+
+		</div> <!-- container -->
+
+		<script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		{% block scripts %}{% endblock %}
+
+	</body>
+</html>
